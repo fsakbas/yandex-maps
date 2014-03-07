@@ -1,3 +1,4 @@
+require 'scraperwiki'
 # encoding: UTF-8
 require 'faraday'
 require 'net/http'
