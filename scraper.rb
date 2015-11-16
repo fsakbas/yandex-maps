@@ -28,7 +28,7 @@ end
 $data = []
 (start_x..end_x).each do |x|
   (start_y..end_y).each do |y|
-  uri = URI "http://n.maps.yandex.ru/actions/get-geoobjects-by-tile.xml?x=#{x}&y=#{y}&zoom=#{zoom}"
+  uri = URI "http://n.maps.yandex.com.tr/actions/get-geoobjects-by-tile.xml?x=#{x}&y=#{y}&zoom=#{zoom}"
   res = Net::HTTP.get uri
   $data += JSON.parse(res)['response']
   end
@@ -41,7 +41,7 @@ p $data.length
 # собираем данные
 $data.each do |object|
 
-  uri = URI "http://n.maps.yandex.ru/actions/get-geoobject.xml?id=#{object['id']}"
+  uri = URI "http://n.maps.yandex.com.tr/actions/get-geoobject.xml?id=#{object['id']}"
   res = JSON.parse(Net::HTTP.get uri)['response']
   if res['id']
     data = {
